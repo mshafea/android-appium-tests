@@ -18,7 +18,6 @@ public class DriverManager {
     private AppiumDriver<MobileElement> driver;
     private DesiredCapabilities capabilities;
     private static String androidApp;
-    private static String androidDeviceName;
     private static String hubHost, port, completeUrl;
 
 
@@ -34,13 +33,13 @@ public class DriverManager {
     }
 
     public AppiumDriver<MobileElement> createDriver() throws IOException, InterruptedException {
-        hubHost = System.getProperty("HUB_HOST");
-        port = System.getProperty("PORT");
+        hubHost = System.getProperty("hub_host");
+        port = System.getProperty("port");
         completeUrl = "http://" + hubHost + ":" + port + "/wd/hub";
         System.out.println("complete URL : " + completeUrl);
         File f = new File(System.getProperty("user.dir") + "/src/main/resources");
         File app = new File(f, androidApp);
-        String device = System.getProperty("DEVICE_NAME");
+        String device = System.getProperty("device_name");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
