@@ -18,8 +18,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     @BeforeTest
     public static void setup() throws IOException, InterruptedException {
         StartStopAppium.startAppiumServer();
-        String device = System.getProperty("DEVICE_NAME");
-
+        String device = System.getProperty("device_name");
         if (!device.contains("Android Device")) {
             StartStopEmulator.launchEmulator(device);
         }

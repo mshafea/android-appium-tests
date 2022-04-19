@@ -14,8 +14,8 @@ public class StartStopAppium {
 
 
     public static AppiumDriverLocalService startAppiumServer() {
-        hubHost = System.getProperty("HUB_HOST");
-        port = Integer.parseInt(System.getProperty("PORT"));
+        hubHost = System.getProperty("hub_host");
+        port = Integer.parseInt(System.getProperty("port"));
         boolean flag = checkIfServerIsRunning(port);
         if (!flag) {
             System.out.println("Starting Appium Server ...");
